@@ -22,15 +22,15 @@ A RESTful backend service for an e-commerce platform. It provides a foundational
 ## CI/CD
 
 
-Automated Builds & Tests: Maven builds and tests run automatically on every push or pull request.
+**Automated Builds & Tests: Maven builds and tests run automatically on every push or pull request.
 
-Security Scanning: CodeQL analyzes the code for potential vulnerabilities.
+**Security Scanning: CodeQL analyzes the code for potential vulnerabilities.
 
-Dockerized Deployment: The application is packaged as a Docker image and pushed to Docker Hub automatically.
+**Dockerized Deployment: The application is packaged as a Docker image and pushed to Docker Hub automatically.
 
-Versioned Images: Each commit is tagged with its unique SHA, preserving image history and enabling rollbacks.
+**Versioned Images: Each commit is tagged with its unique SHA, preserving image history and enabling rollbacks.
 
-Pipeline Tool: GitHub Actions orchestrates the CI/CD workflow.
+**Pipeline Tool: GitHub Actions orchestrates the CI/CD workflow.
 
 
 
