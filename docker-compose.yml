@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: ecommerce-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: commerce
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-your_db_password}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:7.0-alpine
+    container_name: ecommerce-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  app:
+    build: .
+    image: e-commerce-api:v1
+    container_name: ecommerce-api
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DB_URL=jdbc:mysql://db:3306/commerce
+      - DB_USERNAME=root
+      - DB_PASSWORD=${DB_PASSWORD:-your_db_password}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
+volumes:
+  mysql_data:
