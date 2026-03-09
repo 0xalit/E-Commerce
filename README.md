@@ -1,4 +1,4 @@
-# E-Commerce backend system (Spring boot)
+# E-Commerce Backend System (Spring Boot)
 
 A RESTful backend service for an e-commerce platform. It provides a foundational API for user authentication, product catalog management, cart handling, order processing, and payment integration.
 
@@ -85,7 +85,7 @@ The API is fully documented using OpenAPI 3. Once the application is running, th
 | **Users** | `/api/users` | Profile retrieval and role assignment (RBAC constrained) |
 | **Products** | `/api/products` | Catalog search, pagination, and inventory CRUD |
 | **Categories** | `/api/categories` | Product grouping and taxonomy management |
-| **Cart** | `/api/cart` | Stateful session cart management and calculation |
+| **Cart** | `/api/cart` | Cart management with item calculation and persistence. |
 | **Orders** | `/api/orders` | Checkout execution and order history tracking |
 | **Payments** | `/api/payments` | Stripe PaymentIntent creation |
 | **Webhooks** | `/api/webhooks` | Public endpoint for handling asynchronous Stripe events |
