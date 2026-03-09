@@ -21,7 +21,8 @@ A RESTful backend service for an e-commerce platform. It provides a foundational
 
 ## Architecture Overview
 
-The project follows a Domain-Driven Design (DDD) package structure, ensuring separation of concerns and maintainability across domains.
+The project follows a domain-oriented, layered architecture. Code is organized by business domains for clarity and maintainability, while separating concerns across application, domain, and infrastructure layers.
+
 
 ```text
 src/main/java/com/example/e_commerce
