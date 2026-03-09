@@ -2,14 +2,21 @@
 
 A RESTful backend service for an e-commerce platform. It provides a foundational API for user authentication, product catalog management, cart handling, order processing, and payment integration.
 
+
 ## Core Features
 
 *   **Authentication & Authorization:** JWT-based stateless authentication with Role-Based Access Control (RBAC).
+
 *   **Concurrency & Data Integrity:** Utilizes full `@Transactional` management alongside explicit Optimistic and Pessimistic Locking to ensure strict data consistency during simultaneous order processing.
+
 *   **Distributed Caching:** Redis used for product catalog caching to reduce database load and improve read performance.
+    
 *   **Abuse Prevention:** API rate limiting implemented via Bucket4j and Redis.
+  
 *   **Global Exception Handling:** Centralized `@RestControllerAdvice` ensuring consistent RESTful error responses.
+  
 *   **Payment Processing:** Asynchronous Stripe Webhook handling for reliable payment state management.
+    
 *   **Observability & Logging:** Centralized logging with SLF4J and Logback including structured request logs and filtered Spring framework traces.
 
 ## Architecture Overview
