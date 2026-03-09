@@ -19,6 +19,23 @@ A RESTful backend service for an e-commerce platform. It provides a foundational
     
 *   **Observability & Logging:** Centralized logging with SLF4J and Logback including structured request logs and filtered Spring framework traces.
 
+## CI/CD
+
+
+Automated Builds & Tests: Maven builds and tests run automatically on every push or pull request.
+
+Security Scanning: CodeQL analyzes the code for potential vulnerabilities.
+
+Dockerized Deployment: The application is packaged as a Docker image and pushed to Docker Hub automatically.
+
+Versioned Images: Each commit is tagged with its unique SHA, preserving image history and enabling rollbacks.
+
+Pipeline Tool: GitHub Actions orchestrates the CI/CD workflow.
+
+
+
+
+
 ## Architecture Overview
 
 The project follows a domain-oriented, layered architecture. Code is organized by business domains for clarity and maintainability, while separating concerns across application, domain, and infrastructure layers.
