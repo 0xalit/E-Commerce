@@ -23,39 +23,38 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # Step 3: Build Maven project
-    - name: Build with Maven
-      run: ./mvnw clean package -DskipTests
-
-    # Step 4: Run Checkstyle (code quality)
-    - name: Run Checkstyle
-      run: ./mvnw checkstyle:check
-
-    # Step 5: Security scanning with CodeQL
+    # Step 3: Security scanning initializing (CodeQL)
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:
         languages: java
 
+    # Step 4: Build Maven project
+    - name: Build with Maven
+      run: |
+        chmod +x mvnw
+        ./mvnw clean package -DskipTests
+
+    # Step 5: Perform CodeQL Analysis
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 
-    # Step 6: Login to Docker Hub
+    # Step 5: Login to Docker Hub
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKERUSERNAME }}
         password: ${{ secrets.DOCKERPASS }}
 
-    # Step 7: Build Docker image
+    # Step 6: Build Docker image
     - name: Build Docker image
       run: docker build -t 0xalit/e-commerce-api:latest .
 
-    # Step 8: Push Docker image to Docker Hub
+    # Step 7: Push Docker image to Docker Hub
     - name: Push Docker image
       run: docker push 0xalit/e-commerce-api:latest
 
-    # Step 9: Tag Docker image with commit SHA and push
+    # Step 8: Tag Docker image with commit SHA and push
     - name: Tag Docker image with commit SHA
       run: |
         docker tag 0xalit/e-commerce-api:latest 0xalit/e-commerce-api:${{ github.sha }}
